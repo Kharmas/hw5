@@ -1,0 +1,41 @@
+<style>
+  .albumsBtn {display: flex; justify-content: space-between; margin: 1rem}
+</style>
+<body class="container">
+<div class="albumsBtn">
+  <h1>Albums </h1>
+  <button type="button"  mat-button color="primary" (click)="onCreat()">+ Add</button>
+
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Band</th>
+    <th scope="col">Genre</th>
+    <th scope="col">Label</th>
+    <th scope="col">Producer</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let album of albums">
+  <tr>
+    <td>{{album.name}}</td>
+    <td>{{album.band}}</td>
+    <td>{{album.genre}}</td>
+    <td>{{album.label}}</td>
+    <td>{{album.producer}}</td>
+    <td><button mat-raised-button color="primary" (click)="editAlbum(album, album.id)">Edit</button></td>
+    <td><button mat-raised-button color="warn" (click)="deleteAlbum(album.id)">Delete</button></td>
+  </tr>
+
+  </tbody>
+</table>
+
+
+
+</body>
+
+

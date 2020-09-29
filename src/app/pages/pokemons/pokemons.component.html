@@ -1,0 +1,33 @@
+<body class="container">
+<div class="wrap-pokemon" *ngIf="pokemon">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Url</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let poke of pokemon.results">
+    <tr>
+      <th>{{poke.name}}</th>
+      <th><a href="{{poke.url}}">{{poke.url}}</a></th>
+      <button mat-raised-button (click)="openDialog(poke.url)">Show</button>
+
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="pokemon.count"
+                 [pageSize]="limit"
+                 [pageSizeOptions]="[5, 10, 20, 100]"
+                 [pageIndex]="1"
+                 (page)="changePage($event)">
+
+  </mat-paginator>
+
+</div>
+</body>
+
+
+
+
